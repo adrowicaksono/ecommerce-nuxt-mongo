@@ -1,40 +1,55 @@
 <template>
   <section class="sectionIndex">
     <div class="container">
-        <div v-for="(i, idx) in 12" v-bind:key="{idx}" class="content">
-          <Card/>
+        <div v-for="(i, idx) in dataItems" v-bind:key="{idx}" class="content">
+          <Card v-bind:item="i"/>
         </div>
     </div>
   </section>
 </template>
 
 <script>
+// import Vue from 'vue'
+// import Vuex from 'vuex'
+import { mapState } from 'vuex'
+import { mapActions } from 'vuex'
 import AppLogo from '~/components/AppLogo.vue'
 import Card from '~/components/Card.vue'
 export default {
+  // async fetch ({ store, params }) {
+  //   await store.dispatch('getItem');
+  // },
   layout:'main',
   components: {
     AppLogo,
     Card
   },
-  // data () {
-  //   return {
-      
-  //   }
-  // },
-  // mounted () {
-
-  // },
-  // methods:{
-    
-  // },
-  // computed : {
-
-  // } 
+  data () {
+    return {
+      items:[]      
+    }
+  },
+  mounted () {
+    this.getItem ()
+  },
+  methods:{
+    ...mapActions([
+      'getItem',
+    ]),  
+  },
+  computed : {
+    dataItems(){
+        console.log(this.$store.state.items)
+        console.log()
+        return this.$store.state.items
+    },
+  } 
 }
 </script>
 
 <style>
+
+
 .sectionIndex{
   width: 100%;
   margin: 0;
@@ -78,3 +93,5 @@ export default {
 }
 </style>
 
+import Vue from 'vue'
+import Vuex from 'vuex'

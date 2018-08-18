@@ -1,7 +1,7 @@
 <template>
     <div class="cardContainer">
         <div class="cardTitle">
-            <h1>title</h1>
+            <h1>{{item.name}}</h1>
         </div>
         <div class="cardBody">
             <h1>body</h1>
@@ -10,8 +10,13 @@
             <h1>footer</h1>
         </div>
     </div>
-
 </template>
+<script>
+export default {
+    props:['item']
+}
+</script>
+
 <style scoped>
 *{
     margin:0;

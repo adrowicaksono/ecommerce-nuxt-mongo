@@ -4,7 +4,7 @@
             <a>menu</a>
         </div>
         <div class="logo">
-                LOGO
+                <img v-bind:src="img" alt="" srcset="">
         </div>
         <div class="menu">
                 <ul v-bind:class="{showing: isMobile}">
@@ -20,6 +20,7 @@ export default {
     data () {
         return{
             isMobile:false,
+            img : '/img/lazadaIcon.png'
         }
     },
     methods:{
@@ -39,7 +40,7 @@ export default {
 
 .logo {
       line-height: 25px;
-      position: fixed;
+      /* position: fixed; */
       float: left;
       margin: 16px 46px;
       color: #fff;
@@ -48,13 +49,19 @@ export default {
       letter-spacing: 2px;
 }
 
+.logo img{
+      /* visibility: hidden; */
+      width: 65px;
+      height: auto;
+}
+
 
 
 nav ul {
       line-height: 25px;
       list-style: none;
       /* background: rgba(0, 0, 0, 0); */
-      background:rgba(5, 110, 110, 0.308);
+      /* background:rgba(5, 110, 110, 0.308); */
       overflow: hidden;
       color: #fff;
       padding: 0;
@@ -77,6 +84,11 @@ nav ul li a {
       text-decoration: none;
       color: #fff;
       font-size: 10px;
+}
+
+.menu{
+      padding: 0;
+      margin: 0;
 }
 
 
