@@ -8,8 +8,8 @@
         </div>
         <div class="menu">
                 <ul v-bind:class="{showing: isMobile}">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
+                    <li><router-link to="/">HOME</router-link></li>
+                    <li><router-link to="/cart">CART</router-link></li>
                 </ul>     
         </div>
     </nav>

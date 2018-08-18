@@ -7,9 +7,6 @@
             <section>
                 <nuxt/>
             </section>
-            <aside>
-
-            </aside>
         </div>
         <footer>
 
@@ -37,6 +34,7 @@ export default {
     align-items: center;
     justify-content:center;
     width: 100%;
+    
    
     
 }
@@ -56,7 +54,7 @@ header{
 
 .contentAdmin{
     width:100%;
-    padding-left:20px;
+    padding-left:0;
 }
 
 </style>

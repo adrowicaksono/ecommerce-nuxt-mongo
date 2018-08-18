@@ -5,21 +5,46 @@ const createStore = () => {
   return new Vuex.Store({
     state: {
       items:'',
+      carts: {},
     },
     mutations: {
       setItem (state, data) {
         // state.items.push(data)
         state.items = data
-        console.log(data, "===========================")
       },
+      setCart (state, data){
+        if(state.carts.hasOwnProperty(data._id)){
+          state.carts[data._id].total += data.price
+          state.carts[data._id].count++
+        }else{
+          
+          let obj = {
+            id : data._id,
+            data,
+            count : 1,
+            total : data.price,
+          }
+          state.carts[data._id] = obj
+        }
+      },
+      minusCart (state, data) {
+        
+          state.carts[data._id].total -= data.price
+          state.carts[data._id].count--
+        
+      }
     },
     actions: {
-     addItem ({commit}, payload) {
+     addToCartState ({commit}, payload) {
         // commit('setItem', payload)
-            console.log("==================")
+            console.log(payload._id, "actions++++++++++")
+            commit('setCart', payload)
+     },
+     minusToCartState({commit}, payload){
+            console.log(payload._id, "actions----------")
+            commit('minusCart', payload)
      },
      getItem({commit}, payload){
-        console.log('action broooo')
         let url = `http://localhost:4000/`
         axios.get(url)
         .then(response => {
@@ -29,12 +54,7 @@ const createStore = () => {
         .catch(err => {
           console.log(err)
         })
-        
      },
-    // async getItem ({ commit }) {
-    //   const { data } = await axios.get('http://localhost:4000/')
-    //   commit('setItem', data)
-    // }
     },
   })
 }

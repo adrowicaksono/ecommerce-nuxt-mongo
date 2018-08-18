@@ -4,7 +4,7 @@ const uploadItem = function (req, res) {
     Item
     .create({
         name : req.body.name,
-        url : req.body.url,
+        img : req.body.img,
         alt : req.body.alt,
         category : req.body.category,
         price : req.body.price,

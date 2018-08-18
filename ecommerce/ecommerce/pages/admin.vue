@@ -7,12 +7,12 @@
                 <button @click="submitFile()" class="button-orange">Submit</button>
             </div>
             <label for="" class="formItem"> url image
-                <input type="text" v-model="url" placeholder="generated from your image link ">
+                <input type="text" disabled="disabled" v-model="img" placeholder="generated from your image link ">
             </label>
             <label for="" class="formItem"> Name
                 <input type="ca" v-model="name" placeholder="note for your picture">
             </label>
-            <label for="" class="formItem"> Alt
+            <label for="" class="formItem"> Description
                 <input type="ca" v-model="alt" placeholder="note for your picture">
             </label>
             <label for="" class="formItem"> Category
@@ -27,7 +27,7 @@
                 <button @click="additem" class="button-orange">Cancel</button>
             </div>
         </div>
-        <img v-bind:src="url" alt="your image will be here" srcset="">        
+        <img v-bind:src="img" alt="your image will be here" srcset="">        
     </div>
 </template>
 
@@ -40,7 +40,7 @@ export default {
     data () {
         return{
             file:'',
-            url: '',
+            img: '',
             name : '',
             category : '',
             price : '',
@@ -50,7 +50,7 @@ export default {
     methods: {
         additem (){
             let data = {
-                url : this.url,
+                img : this.img,
                 name : this.name,
                 category : this.category,
                 price : this.price,
@@ -76,7 +76,7 @@ export default {
             .post('https://imageuploader.adrowicaksono.xyz/upload', formData)
             .then(link=>{
                 console.log(link.data.link)
-                this.url = link.data.link
+                this.img = link.data.link
 
             })   
         }

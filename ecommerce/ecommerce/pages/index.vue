@@ -82,16 +82,20 @@ export default {
   /* border-style: solid;
   border-color:red; */
   background-color:antiquewhite;
-  height: 200px;
+  height: auto;
   width:23%;
-  padding:10px;
+  padding:0px;
   align-items: flex-start;
-  margin-top: 1px;
+  margin-top: 2px;
   margin-bottom: 1px;
   margin-left:1px;
   /* margin-bottom:-99px; */
 }
+.content:hover{
+   border: 0.5px solid rgb(2, 94, 94);
+   margin-bottom: 3px;
+   margin-right: 3px;
+   box-shadow: 2px 2px rgba(126, 119, 119, 0.753);
+}
 </style>
 
-import Vue from 'vue'
-import Vuex from 'vuex'
