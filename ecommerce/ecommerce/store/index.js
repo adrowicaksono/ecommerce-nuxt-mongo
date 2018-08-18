@@ -28,27 +28,34 @@ const createStore = () => {
         }
       },
       minusCart (state, data) {
-        
           state.carts[data._id].total -= data.price
           state.carts[data._id].count--
         
+      },
+      deleteItem ( state, data ) {
+          delete state.carts[data]
+      },
+      emptyCart ( state ){
+        state.carts = {}
       }
     },
     actions: {
      addToCartState ({commit}, payload) {
-        // commit('setItem', payload)
-            console.log(payload._id, "actions++++++++++")
-            commit('setCart', payload)
+            commit ( 'setCart' , payload)
      },
      minusToCartState({commit}, payload){
-            console.log(payload._id, "actions----------")
-            commit('minusCart', payload)
+            commit ( 'minusCart' , payload)
+     },
+     deleteItemOfCartState({commit}, payload){
+            commit ( 'deleteItem', payload )
+     },
+     emptyCartsState ( {commit} ) {
+            commit ( 'emptyCart')
      },
      getItem({commit}, payload){
         let url = `http://localhost:4000/`
         axios.get(url)
         .then(response => {
-          // console.log(response.data.data)
           commit('setItem',response.data.data)
         })
         .catch(err => {

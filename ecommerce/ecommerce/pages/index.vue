@@ -81,20 +81,19 @@ export default {
   display: flex;
   /* border-style: solid;
   border-color:red; */
-  background-color:antiquewhite;
-  height: auto;
+  height: 50vh;
   width:23%;
-  padding:0px;
   align-items: flex-start;
-  margin-top: 2px;
+  margin-top: 3px;
   margin-bottom: 1px;
   margin-left:1px;
+  overflow: hidden;
   /* margin-bottom:-99px; */
 }
 .content:hover{
    border: 0.5px solid rgb(2, 94, 94);
    margin-bottom: 3px;
-   margin-right: 3px;
+   margin-right: 0px;
    box-shadow: 2px 2px rgba(126, 119, 119, 0.753);
 }
 </style>

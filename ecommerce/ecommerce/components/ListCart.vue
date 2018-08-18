@@ -1,5 +1,5 @@
 <template>
-    <div class="listCartContainer">
+    <div class="listCartContainer" v-if="!remove">
         <img v-bind:src="product.data.img" alt="" srcset="">
         <div class="itemDetail">
             <h3>{{product.data.name}}</h3>
@@ -12,7 +12,7 @@
             <button class="button-action" v-on:click="minus">-</button>
             <p>{{product.count}}</p>
             <button class="button-action" v-on:click="plus">+</button>
-            <button class="button-action" ><i class="icon-trash"></i></button>
+            <button class="button-action" v-on:click="trash"><i class="icon-trash"></i></button>
         </div>
     </div>
 </template>
@@ -22,9 +22,14 @@ import { mapActions } from 'vuex'
 
 export default {
     props:['product'],
+    data () {
+        return {
+            remove : false
+        }
+    },
     methods : {
         ...mapActions([
-            'addToCartState', 'minusToCartState'
+            'addToCartState', 'minusToCartState','deleteItemOfCartState'
         ]),
         plus () {
         //    console.log(this.product.data, "================")
@@ -35,6 +40,11 @@ export default {
             if(this.product.count > 0 ){
                 this.minusToCartState (this.product.data)
             }
+        },
+        trash () {
+            console.log(this.product.id)
+            this.remove = true;
+            this.deleteItemOfCartState(this.product.id)
         }
     },
     computed:{
@@ -56,9 +66,11 @@ export default {
     flex-direction: row;
     align-items: flex-start;
     justify-content: flex-start;
-    margin: 0;
+    margin-top: 5px;
+    margin-bottom: 5px;
     padding:2px;
     padding-top: 10px;
+    background:white;
 }
 .itemDetail{
     display: flex;

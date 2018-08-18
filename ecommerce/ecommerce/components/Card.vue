@@ -42,8 +42,7 @@ export default {
     width:100%;
     display: flex;
     flex-direction: column;
-    height: auto;
-    background-color: powderblue; 
+    height: 100%;
     overflow: hidden;
     border-radius: 2px;
 }
@@ -51,14 +50,13 @@ export default {
 .cardImg img{
     width:100%;
     height:auto;
+    padding: 0.5px;
 }
 .cardTitle{
     font-size: 10px;
-    background-color: powderblue;
 }
 .cardBody{
     font-size: 8px;
-    background-color: powderblue;
 }
 .divider{
     width:100%;
@@ -79,5 +77,6 @@ export default {
     width: 80%;
     border-radius: 5px;
     margin:3px;
+    margin-top:5px;
 }
 </style>
