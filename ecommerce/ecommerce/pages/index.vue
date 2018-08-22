@@ -81,7 +81,7 @@ export default {
   display: flex;
   /* border-style: solid;
   border-color:red; */
-  height: 50vh;
+  /* height: 50vh; */
   width:23%;
   align-items: flex-start;
   margin-top: 3px;
@@ -91,8 +91,8 @@ export default {
   /* margin-bottom:-99px; */
 }
 .content:hover{
-   border: 0.5px solid rgb(2, 94, 94);
-   margin-bottom: 3px;
+   border: 0.3px solid rgb(2, 94, 94);
+   padding-bottom: 2px;
    margin-right: 0px;
    box-shadow: 2px 2px rgba(126, 119, 119, 0.753);
 }

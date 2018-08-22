@@ -3,6 +3,8 @@
         <div class="form">
             <h1>Admin's Page</h1>
             <div class="formItem">
+                <h6 style="color:green" v-if="isSuccess">item was added</h6 >
+                <h6 style="color:red" v-else>{{error}}</h6 >
                 <input type="file" name="" id=""  v-on:change="handleFileUpload($event)">
                 <button @click="submitFile()" class="button-orange">Submit</button>
             </div>
@@ -44,7 +46,9 @@ export default {
             name : '',
             category : '',
             price : '',
-            alt : ''
+            alt : '',
+            isSuccess : false,
+            error : ''
         }
     },
     methods: {
@@ -60,9 +64,19 @@ export default {
             axios.post('http://localhost:4000/', data)
             .then(response =>{
                 console.log("succesfully added item",response)
+                this.file = ''
+                this.img = ''
+                this.name = ''
+                this.category =''
+                this.price =''
+                this.alt = ''
+                this.isSuccess = true
+                
             })
             .catch(err => {
                 console.log(err.message)
+                this.isSuccess = false
+                this.error = err.response.data.msg
             })
         },
          handleFileUpload : function(e){
@@ -77,7 +91,6 @@ export default {
             .then(link=>{
                 console.log(link.data.link)
                 this.img = link.data.link
-
             })   
         }
     }

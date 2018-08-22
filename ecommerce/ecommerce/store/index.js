@@ -12,6 +12,27 @@ const createStore = () => {
         // state.items.push(data)
         state.items = data
       },
+      setItemBySearch(state, data) {
+        let list = [...new Set(state.items)]
+        console.log(list, '<-- new list', data, '<---data')
+        let newList = null
+        if(Number(data)){
+          console.log("number nih")
+          newList =  list.filter(function(x){
+                            return x.price >= Number(data)
+                      })
+        }else{
+          let word = data.toLowerCase()
+          newList =  list.filter(function(x){
+            let name = x.name.toLowerCase()
+            let category = x.category.toLowerCase()
+            let alt = x.category.toLowerCase()
+            return name.includes(word) || category.includes(word) || alt.includes(word) 
+          })
+        }
+        console.log('by search :',newList)
+        state.items = newList
+      },
       setCart (state, data){
         if(state.carts.hasOwnProperty(data._id)){
           state.carts[data._id].total += data.price
@@ -62,6 +83,31 @@ const createStore = () => {
           console.log(err)
         })
      },
+     getCategory({commit}, payload){
+       console.log('store get category',payload)
+       let url = `http://localhost:4000/category?category=${payload}`
+       axios.get(url)
+       .then(response => {
+         console.log(response.data.data)
+         commit('setItem', response.data.data )
+       })
+       .catch( err => {
+         console.log(err)
+       })
+     },
+     getBySearch({commit}, payload){
+       console.log('action search :',payload)
+       commit('setItemBySearch', payload)
+        // let list = [...new Set(this.filterCategory)]
+        // let limit = this.rangePrice
+        // if(list.length > 0 ){
+        //     return this.stocks.filter(function(stock){
+        //         // console.log(limit)
+        //         // console.log(app.rangePrice)
+        //         // console.log(stock.price)
+        //         return list.indexOf(stock.category) != -1  && Number(stock.price) >= limit
+        //     })
+     }
     },
   })
 }

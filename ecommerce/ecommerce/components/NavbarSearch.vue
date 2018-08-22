@@ -1,8 +1,8 @@
 <template>
     <div class="nav">
         <div class="search">
-            <button type="submit" class="button-orange"> <i class="icon-magnifier"></i></button>
-            <input type="text" name="" id="">
+            <button type="submit" class="button-orange" @click="getItemBySearch"> <i class="icon-magnifier"></i></button>
+            <input type="text" name="" id="" v-model="searchWord">
         </div>
         <div class="tool">
             <button type="submit" class="button-orange"> <i class="icon-magnifier"></i></button>
@@ -11,13 +11,18 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 export default {
     data () {
         return{
             isMobile:false,
+            searchWord :'',
         }
     },
     methods:{
+        ...mapActions([
+            'getBySearch'
+        ]),
         toggleMenu () {
             if(this.isMobile){
                 this.isMobile=false    
@@ -25,6 +30,10 @@ export default {
                 this.isMobile=true
             }
         },
+        getItemBySearch(){
+            console.log("bysearch ==========",this.searchWord)
+            this.getBySearch(this.searchWord)
+        }
     }
 }
 </script>

@@ -1,20 +1,46 @@
 <template>
     <div class="search-container">
         <div class="search-banner">
-            <button class="button-orange"><i class="icon-magnifier"></i></button>
-            <input type="text">
+            <button @click="getItemBySearch" class="button-orange"><i class="icon-magnifier"></i></button>
+            <input type="text" v-model="searchWord">
         </div>
         <ul>
-            <li><a href="#!">abc</a></li>
-            <li><a href="#!">abc</a></li>
-            <li><a href="#!">abc</a></li>
+            <li><a href="#!" @click="getItem">all</a></li>
+            <li><a href="#!" @click="storeCategory('sports')">sport</a></li>
+            <li><a href="#!" @click="storeCategory('electronic')">electronic</a></li>
+            <li><a href="#!" @click="storeCategory('fashion')">fashion</a></li>
         </ul>
     </div>
 </template>
 
+<script>
+
+import { mapActions } from 'vuex';
+
+export default {
+    data () {
+        return {
+            searchWord :'',
+        }
+    },
+    methods:{
+        ...mapActions([
+            'getItem','getCategory','getBySearch'
+        ]),
+        storeCategory (category) {
+            this.getCategory(category)
+            console.log('sendiri', category)
+        },
+        getItemBySearch(){
+            console.log("bysearch ==========",this.searchWord)
+            this.getBySearch(this.searchWord)
+        }
+    }
+}
+</script>
+
+
 <style scoped>
-
-
 *{
     margin: 0;
     padding: 0;
@@ -70,6 +96,10 @@
     color:beige;
     font-size:12px;
     text-decoration-line: none;
+}
+
+.search-container ul li a:hover{
+    background-color: rgb(5, 110, 110);
 }
 
 @media(max-width: 786px) {

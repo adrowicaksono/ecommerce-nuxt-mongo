@@ -23,11 +23,12 @@ export default {
     props:['item'],
     methods : {
         ...mapActions([
-            'addToCartState',
+            'addToCartState','getItem'
         ]), 
         addToCart () {
             console.log(JSON.stringify(this.item), "dibelii")
             this.addToCartState (this.item)
+            this.getItem()
         }
     },
 }
@@ -50,6 +51,7 @@ export default {
 .cardImg img{
     width:100%;
     height:auto;
+    max-height: 300px;
     padding: 0.5px;
 }
 .cardTitle{
