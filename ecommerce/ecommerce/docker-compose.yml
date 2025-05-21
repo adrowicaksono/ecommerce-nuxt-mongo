@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  nuxt-app:
+    build: .
+    container_name: nuxt-app
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - HOST=0.0.0.0
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+      - /usr/src/app/.nuxt
