@@ -12,7 +12,7 @@
         <h1>Aside banner</h1>
       </div>
     </div>
-    <div ref="search" class="input-search">
+    <div ref="navbarSearch" class="input-search">
       <Search />
     </div>
     <div class="containerContent" ref="content">
@@ -21,33 +21,28 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      isNavbar: true
-    }
-  },
-  mounted() {
-    window.addEventListener('scroll', this.handleScroll);
-  },
-  destroyed() {
-    window.removeEventListener('scroll', this.handleScroll);
-  },
-  methods: {
-    handleScroll(event) {
-      console.log('SCROLL')
-      // Any code to be executed
-      // when the window is scrolled
-      let page = window.pageYOffset
-      let content = this.$refs.search
-      let contentTop = content.offsetTop
-      if (page > contentTop) {
-        this.isNavbar = false
-      } else {
-        this.isNavbar = true
-      }
-    }
+<script setup>
+const navbarSearch = ref(null)
+const isNavbar = ref(true)
+onMounted(() => {
+  console.log('mounted')
+  window.addEventListener('scroll', handleScroll);
+})
+onBeforeUnmount(() => {
+  console.log('destroyed')
+  window.removeEventListener('scroll', handleScroll);
+})
+function handleScroll(event) {
+  // Any code to be executed
+  // when the window is scrolled
+  let page = window.pageYOffset
+  let searchBar = navbarSearch
+
+  let searchBarTop = searchBar.value.offsetTop
+  if (page > searchBarTop) {
+    isNavbar.value = false
+  } else {
+    isNavbar.value = true
   }
 }
 </script>

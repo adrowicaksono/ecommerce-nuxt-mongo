@@ -15,26 +15,18 @@
   </nav>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      isMobile: false,
-      img: '/img/lazadaIcon.png'
-    }
-  },
-  methods: {
-    toggleMenu() {
-      if (this.isMobile) {
-        this.isMobile = false
-      } else {
-        this.isMobile = true
-      }
-    },
+<script setup>
+const isMobile = ref(false)
+const img = ref('/img/lazadaIcon.png')
+
+function toggleMenu() {
+  if (isMobile.value) {
+    isMobile.value = false
+  } else {
+    isMobile.value = true
   }
 }
 </script>
-
 
 <style scoped>
 .logo {

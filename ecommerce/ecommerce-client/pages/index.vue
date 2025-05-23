@@ -8,145 +8,27 @@
   </section>
 </template>
 
-<script>
+<script setup>
+
 definePageMeta({
   layout: 'main'
 })
-export default {
-  // async fetch ({ store, params }) {
-  //   await store.dispatch('getItem');
-  // },
-  data() {
-    return {
-      items: [{
-        img: 'https://media-www.canadiantire.ca/product/seasonal-gardening/backyard-fun/pool-fun/0810158/beach-ball-16--13b11c85-4ed6-4a8e-bfd6-02d1c31b40af-jpgrendition.jpg?impolicy=mZoom',
-        name: 'ball',
-        alt: 'ball-alt',
-        price: 5000
-      },
-      {
-        img: 'https://media-www.canadiantire.ca/product/seasonal-gardening/backyard-fun/pool-fun/0810158/beach-ball-16--13b11c85-4ed6-4a8e-bfd6-02d1c31b40af-jpgrendition.jpg?impolicy=mZoom',
-        name: 'ball',
-        alt: 'ball-alt',
-        price: 5000
-      }, {
-        img: 'https://media-www.canadiantire.ca/product/seasonal-gardening/backyard-fun/pool-fun/0810158/beach-ball-16--13b11c85-4ed6-4a8e-bfd6-02d1c31b40af-jpgrendition.jpg?impolicy=mZoom',
-        name: 'ball',
-        alt: 'ball-alt',
-        price: 5000
-      }, {
-        img: 'https://media-www.canadiantire.ca/product/seasonal-gardening/backyard-fun/pool-fun/0810158/beach-ball-16--13b11c85-4ed6-4a8e-bfd6-02d1c31b40af-jpgrendition.jpg?impolicy=mZoom',
-        name: 'ball',
-        alt: 'ball-alt',
-        price: 5000
-      }, {
-        img: 'https://media-www.canadiantire.ca/product/seasonal-gardening/backyard-fun/pool-fun/0810158/beach-ball-16--13b11c85-4ed6-4a8e-bfd6-02d1c31b40af-jpgrendition.jpg?impolicy=mZoom',
-        name: 'ball',
-        alt: 'ball-alt',
-        price: 5000
-      }, {
-        img: 'https://media-www.canadiantire.ca/product/seasonal-gardening/backyard-fun/pool-fun/0810158/beach-ball-16--13b11c85-4ed6-4a8e-bfd6-02d1c31b40af-jpgrendition.jpg?impolicy=mZoom',
-        name: 'ball',
-        alt: 'ball-alt',
-        price: 5000
-      }, {
-        img: 'https://media-www.canadiantire.ca/product/seasonal-gardening/backyard-fun/pool-fun/0810158/beach-ball-16--13b11c85-4ed6-4a8e-bfd6-02d1c31b40af-jpgrendition.jpg?impolicy=mZoom',
-        name: 'ball',
-        alt: 'ball-alt',
-        price: 5000
-      }, {
-        img: 'https://media-www.canadiantire.ca/product/seasonal-gardening/backyard-fun/pool-fun/0810158/beach-ball-16--13b11c85-4ed6-4a8e-bfd6-02d1c31b40af-jpgrendition.jpg?impolicy=mZoom',
-        name: 'ball',
-        alt: 'ball-alt',
-        price: 5000
-      }, {
-        img: 'https://media-www.canadiantire.ca/product/seasonal-gardening/backyard-fun/pool-fun/0810158/beach-ball-16--13b11c85-4ed6-4a8e-bfd6-02d1c31b40af-jpgrendition.jpg?impolicy=mZoom',
-        name: 'ball',
-        alt: 'ball-alt',
-        price: 5000
-      }, {
-        img: 'https://media-www.canadiantire.ca/product/seasonal-gardening/backyard-fun/pool-fun/0810158/beach-ball-16--13b11c85-4ed6-4a8e-bfd6-02d1c31b40af-jpgrendition.jpg?impolicy=mZoom',
-        name: 'ball',
-        alt: 'ball-alt',
-        price: 5000
-      }, {
-        img: 'https://media-www.canadiantire.ca/product/seasonal-gardening/backyard-fun/pool-fun/0810158/beach-ball-16--13b11c85-4ed6-4a8e-bfd6-02d1c31b40af-jpgrendition.jpg?impolicy=mZoom',
-        name: 'ball',
-        alt: 'ball-alt',
-        price: 5000
-      }, {
-        img: 'https://media-www.canadiantire.ca/product/seasonal-gardening/backyard-fun/pool-fun/0810158/beach-ball-16--13b11c85-4ed6-4a8e-bfd6-02d1c31b40af-jpgrendition.jpg?impolicy=mZoom',
-        name: 'ball',
-        alt: 'ball-alt',
-        price: 5000
-      }, {
-        img: 'https://media-www.canadiantire.ca/product/seasonal-gardening/backyard-fun/pool-fun/0810158/beach-ball-16--13b11c85-4ed6-4a8e-bfd6-02d1c31b40af-jpgrendition.jpg?impolicy=mZoom',
-        name: 'ball',
-        alt: 'ball-alt',
-        price: 5000
-      }, {
-        img: 'https://media-www.canadiantire.ca/product/seasonal-gardening/backyard-fun/pool-fun/0810158/beach-ball-16--13b11c85-4ed6-4a8e-bfd6-02d1c31b40af-jpgrendition.jpg?impolicy=mZoom',
-        name: 'ball',
-        alt: 'ball-alt',
-        price: 5000
-      }, {
-        img: 'https://media-www.canadiantire.ca/product/seasonal-gardening/backyard-fun/pool-fun/0810158/beach-ball-16--13b11c85-4ed6-4a8e-bfd6-02d1c31b40af-jpgrendition.jpg?impolicy=mZoom',
-        name: 'ball',
-        alt: 'ball-alt',
-        price: 5000
-      }, {
-        img: 'https://media-www.canadiantire.ca/product/seasonal-gardening/backyard-fun/pool-fun/0810158/beach-ball-16--13b11c85-4ed6-4a8e-bfd6-02d1c31b40af-jpgrendition.jpg?impolicy=mZoom',
-        name: 'ball',
-        alt: 'ball-alt',
-        price: 5000
-      }, {
-        img: 'https://media-www.canadiantire.ca/product/seasonal-gardening/backyard-fun/pool-fun/0810158/beach-ball-16--13b11c85-4ed6-4a8e-bfd6-02d1c31b40af-jpgrendition.jpg?impolicy=mZoom',
-        name: 'ball',
-        alt: 'ball-alt',
-        price: 5000
-      }, {
-        img: 'https://media-www.canadiantire.ca/product/seasonal-gardening/backyard-fun/pool-fun/0810158/beach-ball-16--13b11c85-4ed6-4a8e-bfd6-02d1c31b40af-jpgrendition.jpg?impolicy=mZoom',
-        name: 'ball',
-        alt: 'ball-alt',
-        price: 5000
-      }, {
-        img: 'https://media-www.canadiantire.ca/product/seasonal-gardening/backyard-fun/pool-fun/0810158/beach-ball-16--13b11c85-4ed6-4a8e-bfd6-02d1c31b40af-jpgrendition.jpg?impolicy=mZoom',
-        name: 'ball',
-        alt: 'ball-alt',
-        price: 5000
-      }, {
-        img: 'https://media-www.canadiantire.ca/product/seasonal-gardening/backyard-fun/pool-fun/0810158/beach-ball-16--13b11c85-4ed6-4a8e-bfd6-02d1c31b40af-jpgrendition.jpg?impolicy=mZoom',
-        name: 'ball',
-        alt: 'ball-alt',
-        price: 5000
-      }, {
-        img: 'https://media-www.canadiantire.ca/product/seasonal-gardening/backyard-fun/pool-fun/0810158/beach-ball-16--13b11c85-4ed6-4a8e-bfd6-02d1c31b40af-jpgrendition.jpg?impolicy=mZoom',
-        name: 'ball',
-        alt: 'ball-alt',
-        price: 5000
-      }, {
-        img: 'https://media-www.canadiantire.ca/product/seasonal-gardening/backyard-fun/pool-fun/0810158/beach-ball-16--13b11c85-4ed6-4a8e-bfd6-02d1c31b40af-jpgrendition.jpg?impolicy=mZoom',
-        name: 'ball',
-        alt: 'ball-alt',
-        price: 5000
-      }]
-    }
-  },
-  mounted() {
-    // this.getItem ()
-  },
-  // methods:{
-  //   ...mapActions([
-  //     'getItem',
-  //   ]),
-  // },
-  // computed : {
-  //   dataItems(){
-  //       console.log(this.$store.state.items)
-  //       console.log()
-  //       return this.$store.state.items
-  //   },
-}
+
+const items = ref([])
+
+onMounted(() => {
+  const item = {
+    img: 'https://media-www.canadiantire.ca/product/seasonal-gardening/backyard-fun/pool-fun/0810158/beach-ball-16--13b11c85-4ed6-4a8e-bfd6-02d1c31b40af-jpgrendition.jpg?impolicy=mZoom',
+    name: 'ball',
+    alt: 'ball-alt',
+    price: 5000
+  }
+
+  for (let i = 0; i < 100; i++) {
+    items.value.push(item)
+  }
+  console.log(items.value)
+})
 </script>
 
 <style>

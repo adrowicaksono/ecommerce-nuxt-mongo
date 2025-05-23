@@ -19,7 +19,7 @@
 
 <script>
 definePageMeta({
-  layout: 'admin'
+  layout: 'common-page'
 })
 export default {
   data() {
