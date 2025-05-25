@@ -12,23 +12,18 @@
     </div>
     <div class="divider"></div>
     <div class="cardFooter">
-      <button class="button-orange" @click="addToCart"> add to cart </button>
+      <button class="button-orange" @click="onClickAddToCard"> add to cart </button>
     </div>
   </div>
 </template>
-<script>
-export default {
-  props: ['item'],
-  methods: {
-    // ...mapActions([
-    //     'addToCartState','getItem'
-    // ]),
-    addToCart() {
-      console.log(JSON.stringify(this.item), "dibelii")
-      // this.addToCartState (this.item)
-      // this.getItem()
-    }
-  },
+<script setup>
+const { item } = defineProps({
+  item: { name: String, alt: String, price: String }
+})
+const emit = defineEmits(['addToCart'])
+
+function onClickAddToCard() {
+  emit('addToCart', item)
 }
 </script>
 

@@ -2,7 +2,7 @@
   <section class="sectionIndex">
     <div class="container">
       <div v-for="(i, idx) in items" v-bind:key="{ idx }" class="content">
-        <Card v-bind:item="i" />
+        <Card v-bind:item="i" @addToCart="addToCart" />
       </div>
     </div>
   </section>
@@ -27,8 +27,11 @@ onMounted(() => {
   for (let i = 0; i < 100; i++) {
     items.value.push(item)
   }
-  console.log(items.value)
 })
+
+function addToCart(item) {
+  console.log({ item }, item.name)
+}
 </script>
 
 <style>
